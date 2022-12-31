@@ -13,18 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('lessons', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('url');
-            $table->string('iframe');
 
-            $table->unsignedBigInteger('platform_id')->nullable();
-            $table->unsignedBigInteger('section_id');
+            $table->unsignedBigInteger('user_id');
 
 
-            $table->foreign('platform_id')->references('id')->on('platforms')->odDelete('set null');
-            $table->foreign('section_id')->references('id')->on('sections')->odDelete('cascade');
+            $table->unsignedBigInteger('commentable_id');
+            $table->string('commentable_type');
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();
         });
@@ -37,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lessons');
+        Schema::dropIfExists('comments');
     }
 };

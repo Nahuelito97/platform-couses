@@ -5,15 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Price extends Model
+class Resource extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
 
 
-    //relacion 1 a muchois
-
-    public function course(){
-        return $this->hashMany('App\Models\Course');
+    public function resourceable(){
+        return $this->morphTo();
     }
 }

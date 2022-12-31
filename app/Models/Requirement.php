@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Requirement extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
 
 
     //relacion 1 a muhcos inversa
