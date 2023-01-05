@@ -1,6 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\HomeCOntroller;
+use App\Http\Controllers\Admin\HomeController;
 
-Route::get('', [HomeCOntroller::class, 'index']);
+Route::get('', [HomeController::class, 'index']);
